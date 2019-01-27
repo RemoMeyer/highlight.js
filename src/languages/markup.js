@@ -67,10 +67,6 @@ function (hljs) {
   var EXTENSION_TYPES = EXTENSION_TYPE_ARRAY.reduce((x, y) => x + ' ' + y);
   var PARAMETER_REG = '\\b((' + PARAMETER_TYPE_ARRAY.reduce((x, y) => x + ')|(' + y) + '))\\b';
 
-  var PARAMETER_IDENTIFIER = {
-    // starts: PARAMETER_EQUAL
-  };
-
   var PARAMETER_BEGIN = {
     variants: [{
       end: '=',
@@ -78,7 +74,6 @@ function (hljs) {
       className: 'attr',
       begin: PARAMETER_REG,  
     }]
-    //starts: PARAMETER_VALUE
   };
 
   var PARAMETER_STRING = {
@@ -99,7 +94,6 @@ function (hljs) {
     begin: '=',
     excludeBegin: true,
     endsWithParent: true,
-    // contains: [PARAMETER_PATH],
   };
 
   var DEFAULT_PARAMETER = {
@@ -123,7 +117,6 @@ function (hljs) {
   var EXTENSION_NAME = {
     keywords: EXTENSION_TYPES,
     beginKeywords: EXTENSION_TYPES,
-    //endsWithParent: true,
   };
 
   var MARKUP = {
@@ -143,8 +136,6 @@ function (hljs) {
     },
     PARAMETER_PATH, PARAMETER_STRING
   ];
-
-
 
   return {
     contains: [MARKUP]
